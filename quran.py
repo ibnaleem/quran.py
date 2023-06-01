@@ -11,6 +11,7 @@ class Chapters:
         self.all_complex = []
         self.all_complex_order = []
         self.arabic_name = []
+        self.translated_name = []
 
 
     def all_simple(self):
@@ -119,6 +120,28 @@ class Chapters:
                 self.arabic_name.append(chapter["name_arabic"])
 
             return self.arabic_name
+
+        else:
+            print(f"The API is currently down. Response Code: {response.status_code}")
+
+    def all_translated_names(self):
+        """Returns a list of all translated chapter names in the Qur'An"""
+
+        url = 'https://api.quran.com/api/v4/chapters?language=en'
+        response = requests.get(url)
+
+        if response.status_code == 200:
+
+            data = response.json()
+            dumped_data = json.dumps(data)
+
+            parsed_data = json.loads(dumped_data)
+
+            for chapter in parsed_data["chapters"]:
+                ch = chapter["translated_name"]
+                self.translated_name.append(ch["name"])
+
+            return self.translated_name
 
         else:
             print(f"The API is currently down. Response Code: {response.status_code}")
