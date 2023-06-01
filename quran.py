@@ -251,7 +251,7 @@ class Chapters(QurAn):
             print(f"The API is currently down. Response Code: {response.status_code}")
 
     def get_translated_name(self, name: str) -> str:
-        """Returns the translation of a chapter name (simple or complex name) as a string"""
+        """Returns the translated chapter name (simple or complex name) as a string"""
 
         if type(name) is not str:
             raise TypeError("Name must be a string")
