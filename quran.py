@@ -20,9 +20,10 @@ class Chapters(QurAn):
         self.madinah_simples = []
         self.madinah_complex = []
         self.translated_conversion = []
+        self.chapter_id = 0
 
 
-    def all_simple(self):
+    def all_simple(self) -> list:
         """Returns a list of all chapter names in the Qur'An in simple notation"""
 
         url = 'https://api.quran.com/api/v4/chapters?language=en'
@@ -43,7 +44,7 @@ class Chapters(QurAn):
         else:
             print(f"The API is currently down. Response Code: {response.status_code}")
 
-    def all_simple_order(self):
+    def all_simple_order(self) -> list:
 
         """Returns a list of all chapter names in the Qur'An in simple notation, in order"""
 
@@ -66,7 +67,7 @@ class Chapters(QurAn):
         else:
             print(f"The API is currently down. Response Code: {response.status_code}")
 
-    def all_complex(self):
+    def all_complex(self) -> list:
         """Returns a list of all chapter names in the Qur'An in complex notation"""
 
         url = 'https://api.quran.com/api/v4/chapters?language=en'
@@ -88,7 +89,7 @@ class Chapters(QurAn):
             print(f"The API is currently down. Response Code: {response.status_code}")
 
     
-    def all_complex_order(self):
+    def all_complex_order(self) -> list:
 
         """Returns a list of all chapter names in the Qur'An, arranged in the order they were revealed, and presented in complex notation"""
 
@@ -111,7 +112,7 @@ class Chapters(QurAn):
         else:
             print(f"The API is currently down. Response Code: {response.status_code}")
 
-    def all_arabic(self):
+    def all_arabic(self) -> list:
         """Returns a list of all chapter names in the Qur'An written in Arabic"""
 
         url = 'https://api.quran.com/api/v4/chapters?language=en'
@@ -132,7 +133,7 @@ class Chapters(QurAn):
         else:
             print(f"The API is currently down. Response Code: {response.status_code}")
 
-    def all_translated_names(self):
+    def all_translated_names(self) -> list:
         """Returns a list of all translated chapter names in the Qur'An"""
 
         url = 'https://api.quran.com/api/v4/chapters?language=en'
@@ -154,7 +155,7 @@ class Chapters(QurAn):
         else:
             print(f"The API is currently down. Response Code: {response.status_code}")
 
-    def all_mecca_simple(self):
+    def all_mecca_simple(self) -> list:
         """Returns a list of all chapters revealed in Mecca (simple notation)"""
 
         url = 'https://api.quran.com/api/v4/chapters?language=en'
@@ -178,7 +179,7 @@ class Chapters(QurAn):
         else:
             print(f"The API is currently down. Response Code: {response.status_code}")
 
-    def all_mecca_complex(self):
+    def all_mecca_complex(self) -> list:
         """Returns a list of all chapters revealed in Mecca (complex notation)"""
 
         url = 'https://api.quran.com/api/v4/chapters?language=en'
@@ -202,7 +203,7 @@ class Chapters(QurAn):
         else:
             print(f"The API is currently down. Response Code: {response.status_code}")
 
-    def all_madinah_simple(self):
+    def all_madinah_simple(self) -> list:
         """Returns a list of all chapters revealed in Madinah (simple notation)"""
 
         url = 'https://api.quran.com/api/v4/chapters?language=en'
@@ -226,7 +227,7 @@ class Chapters(QurAn):
         else:
             print(f"The API is currently down. Response Code: {response.status_code}")
 
-    def all_madinah_complex(self):
+    def all_madinah_complex(self) -> list:
         """Returns a list of all chapters revealed in Madinah (complex notation)"""
 
         url = 'https://api.quran.com/api/v4/chapters?language=en'
@@ -274,5 +275,28 @@ class Chapters(QurAn):
 
             return ''.join(self.translated_conversion)
 
+        else:
+            print(f"The API is currently down. Response Code: {response.status_code}")
+
+    def get_id(self, name: str) -> int:
+        """Returns the ID of a simple or complex name as an integer"""
+
+        if type(name) is not str:
+            raise TypeError("Name must be a string")
+
+        url = 'https://api.quran.com/api/v4/chapters?language=en'
+        response = requests.get(url)
+
+        if response.status_code == 200:
+
+            data = response.json()
+            dumped_data = json.dumps(data)
+            parsed_data = json.loads(dumped_data)
+
+            for chapter in parsed_data["chapters"]:
+                if chapter["name_simple"] == name or chapter["name_complex"] == name:
+                    return self.chapter_id + int(chapter["id"])
+                else:
+                    pass
         else:
             print(f"The API is currently down. Response Code: {response.status_code}")
