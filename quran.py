@@ -13,6 +13,7 @@ class Chapters:
         self.arabic_name = []
         self.translated_name = []
         self.mecca_simples = []
+        self.mecca_complex = []
 
 
     def all_simple(self):
@@ -167,6 +168,30 @@ class Chapters:
                     pass
 
             return self.mecca_simples
+
+        else:
+            print(f"The API is currently down. Response Code: {response.status_code}")
+
+    def all_mecca_complex(self):
+        """Returns a list of all chapters revealed in Mecca (complex notation)"""
+
+        url = 'https://api.quran.com/api/v4/chapters?language=en'
+        response = requests.get(url)
+
+        if response.status_code == 200:
+
+            data = response.json()
+            dumped_data = json.dumps(data)
+
+            parsed_data = json.loads(dumped_data)
+
+            for chapter in parsed_data["chapters"]:
+                if chapter["revelation_place"] == "makkah":
+                    self.mecca_complex.append(chapter["name_complex"])
+                else:
+                    pass
+
+            return self.mecca_complex
 
         else:
             print(f"The API is currently down. Response Code: {response.status_code}")
