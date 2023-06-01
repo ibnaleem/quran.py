@@ -254,7 +254,7 @@ class Chapters(QurAn):
         """Returns the translated chapter name (simple or complex name) as a string"""
 
         if type(name) is not str:
-            raise TypeError("Name must be a string")
+            raise TypeError("'Name' must be a string")
 
         url = 'https://api.quran.com/api/v4/chapters?language=en'
         response = requests.get(url)
