@@ -13,7 +13,7 @@ class Chapters:
 
 
     def all_simple(self):
-        """Returns a list of all chapter names in the QurAn in simple notation"""
+        """Returns a list of all chapter names in the Qur'An in simple notation"""
 
         url = 'https://api.quran.com/api/v4/chapters?language=en'
         response = requests.get(url)
@@ -35,7 +35,7 @@ class Chapters:
 
     def all_simple_order(self):
 
-        """Returns a list of all chapter names in the QurAn in simple notation, in order"""
+        """Returns a list of all chapter names in the Qur'An in simple notation, in order"""
 
         url = 'https://api.quran.com/api/v4/chapters?language=en'
         response = requests.get(url)
@@ -57,7 +57,7 @@ class Chapters:
             print(f"The API is currently down. Response Code: {response.status_code}")
 
     def all_complex(self):
-        """Returns a list of all chapter names in the QurAn in complex notation"""
+        """Returns a list of all chapter names in the Qur'An in complex notation"""
 
         url = 'https://api.quran.com/api/v4/chapters?language=en'
         response = requests.get(url)
@@ -80,7 +80,7 @@ class Chapters:
     
     def all_complex_order(self):
 
-        """Returns a list of all chapter names in the QurAn in complex notation, in order"""
+        """Returns a list of all chapter names in the Qur'An in complex notation, in order"""
 
         url = 'https://api.quran.com/api/v4/chapters?language=en'
         response = requests.get(url)
@@ -100,3 +100,4 @@ class Chapters:
 
         else:
             print(f"The API is currently down. Response Code: {response.status_code}")
+
