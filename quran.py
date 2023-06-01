@@ -14,6 +14,7 @@ class Chapters:
         self.translated_name = []
         self.mecca_simples = []
         self.mecca_complex = []
+        self.madinah_simples = []
 
 
     def all_simple(self):
@@ -192,6 +193,30 @@ class Chapters:
                     pass
 
             return self.mecca_complex
+
+        else:
+            print(f"The API is currently down. Response Code: {response.status_code}")
+
+    def all_madinah_simple(self):
+        """Returns a list of all chapters revealed in Madinah (simple notation)"""
+
+        url = 'https://api.quran.com/api/v4/chapters?language=en'
+        response = requests.get(url)
+
+        if response.status_code == 200:
+
+            data = response.json()
+            dumped_data = json.dumps(data)
+
+            parsed_data = json.loads(dumped_data)
+
+            for chapter in parsed_data["chapters"]:
+                if chapter["revelation_place"] == "madinah":
+                    self.madinah_simples.append(chapter["name_simple"])
+                else:
+                    pass
+
+            return self.madinah_simples
 
         else:
             print(f"The API is currently down. Response Code: {response.status_code}")
