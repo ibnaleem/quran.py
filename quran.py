@@ -3,9 +3,12 @@ import json
 import html2text
 import string
 
-class Chapters:
+class QurAn:
     def __init__(self):
         self.__version__ = 1.0
+
+class Chapters(QurAn):
+    def __init__(self):
         self.all_simples = []
         self.all_simples_order = []
         self.all_complex = []
@@ -245,3 +248,4 @@ class Chapters:
 
         else:
             print(f"The API is currently down. Response Code: {response.status_code}")
+
