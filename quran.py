@@ -81,7 +81,7 @@ class Chapters:
     
     def all_complex_order(self):
 
-        """Returns a list of all chapter names in the Qur'An in complex notation, in order"""
+        """Returns a list of all chapter names in the Qur'An, arranged in the order they were revealed, and presented in complex notation"""
 
         url = 'https://api.quran.com/api/v4/chapters?language=en'
         response = requests.get(url)
@@ -103,7 +103,7 @@ class Chapters:
             print(f"The API is currently down. Response Code: {response.status_code}")
 
     def all_arabic(self):
-        """Returns a list of all chapter names in the Qur'an written in Arabic"""
+        """Returns a list of all chapter names in the Qur'An written in Arabic"""
 
         url = 'https://api.quran.com/api/v4/chapters?language=en'
         response = requests.get(url)
