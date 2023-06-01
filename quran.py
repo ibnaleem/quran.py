@@ -103,7 +103,7 @@ class Chapters:
             print(f"The API is currently down. Response Code: {response.status_code}")
 
     def all_arabic(self):
-        """Returns a list of all chapter names in the Qur'An in Arabic"""
+        """Returns a list of all chapter names in the Qur'an written in Arabic"""
 
         url = 'https://api.quran.com/api/v4/chapters?language=en'
         response = requests.get(url)
