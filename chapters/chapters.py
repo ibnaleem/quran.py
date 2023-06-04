@@ -5,8 +5,8 @@ class Chapters(QurAn):
     def __init__(self):
         self.all_simples = []
         self.all_simples_order = []
-        self.all_complex = []
-        self.all_complex_order = []
+        self.all_complexes = []
+        self.all_complexes_order = []
         self.arabic_names = []
         self.translated_name = []
         self.mecca_simples = []
@@ -83,9 +83,9 @@ class Chapters(QurAn):
             parsed_data = json.loads(dumped_data)
 
             for chapter in parsed_data["chapters"]:
-                self.all_complex.append(chapter["name_complex"])
+                self.all_complexes.append(chapter["name_complex"])
 
-            return self.all_complex
+            return self.all_complexes
 
         else:
             print(f"The API is currently down. Response Code: {response.status_code}")
@@ -107,9 +107,9 @@ class Chapters(QurAn):
             chapters = parsed_data["chapters"]
             sorted_chapters = sorted(chapters, key=lambda x: x["revelation_order"])
             for chapter in sorted_chapters:
-                self.all_complex_order.append(chapter["name_complex"])
+                self.all_complexes_order.append(chapter["name_complex"])
 
-            return self.all_complex_order
+            return self.all_complexes_order
 
         else:
             print(f"The API is currently down. Response Code: {response.status_code}")
