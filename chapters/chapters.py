@@ -393,11 +393,11 @@ class Chapters(QurAn):
             print(f"The API is currently down. Response Code: {response.status_code}")
 
     def get_chapter_from_id(self, id: int) -> str:
+        """Returns the simple and complex name of a chapter from an ID as a string"""
 
         if type(id) is not int:
             raise TypeError("ID must be an integer")
 
-        """Returns the simple and complex name of a chapter from an ID as a string"""
 
         url = f'https://api.quran.com/api/v4/chapters/{id}?language=en'
         response = requests.get(url)
