@@ -7,7 +7,7 @@ class Chapters(QurAn):
         self.all_simples_order = []
         self.all_complex = []
         self.all_complex_order = []
-        self.arabic_name = []
+        self.arabic_names = []
         self.translated_name = []
         self.mecca_simples = []
         self.mecca_complex = []
@@ -15,7 +15,7 @@ class Chapters(QurAn):
         self.madinah_complex = []
         self.translated_conversion = []
         self.chapter_id = 0
-        self.name_in_arabic = ""
+        self.arabic_name = ""
         self.revelation_place = ""
         self.revelation_order = 0
         self.verse_count = 0
@@ -127,9 +127,9 @@ class Chapters(QurAn):
             parsed_data = json.loads(dumped_data)
 
             for chapter in parsed_data["chapters"]:
-                self.arabic_name.append(chapter["name_arabic"])
+                self.arabic_names.append(chapter["name_arabic"])
 
-            return self.arabic_name
+            return self.arabic_names
 
         else:
             print(f"The API is currently down. Response Code: {response.status_code}")
@@ -320,7 +320,7 @@ class Chapters(QurAn):
 
             for chapter in parsed_data["chapters"]:
                 if chapter["name_simple"] or chapter["name_complex"] == name:
-                    return self.name_in_arabic + chapter["name_arabic"]
+                    return self.arabic_name + chapter["name_arabic"]
 
         else:
             print(f"The API is currently down. Response Code: {response.status_code}")
