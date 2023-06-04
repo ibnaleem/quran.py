@@ -18,7 +18,7 @@ It is no surpise that [Qur'An.com](https://quran.com/) is (one of) the most famo
 - Audios of Qur'An recitations
 - Recitation Styles
 - Languages
-- Chapter Info
+- [Chapter Info](https://github.com/ibnaleem/quran.py/tree/main/chapters)
 - Juz numbers
 - The verses only revealed in Madīnah
 - The verses only revealed in Mecca
