@@ -39,9 +39,9 @@ class Chapters(QurAn):
             parsed_data = json.loads(dumped_data)
 
             for chapter in parsed_data["chapters"]:
-                self.name_simples.append(chapter["name_simple"])
+                self.all_simples.append(chapter["name_simple"])
 
-            return self.name_simples
+            return self.all_simples
 
         else:
             print(f"The API is currently down. Response Code: {response.status_code}")
