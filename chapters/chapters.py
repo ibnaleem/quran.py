@@ -16,6 +16,7 @@ class Chapters(QurAn):
         self.translated_conversion = []
         self.chapter_id = 0
         self.name_in_arabic = ""
+        self.revelation_place = ""
 
 
     def all_simple(self) -> list:
@@ -315,6 +316,29 @@ class Chapters(QurAn):
             for chapter in parsed_data["chapters"]:
                 if chapter["name_simple"] or chapter["name_complex"] == name:
                     return self.name_in_arabic + chapter["name_arabic"]
+
+        else:
+            print(f"The API is currently down. Response Code: {response.status_code}")
+
+    def get_revelation_place(self, name: str):
+        """Returns the revelation place of chapter from a simple or complex name as a string"""
+
+        if type(name) is not str:
+            raise TypeError("Name must be a string")
+
+        url = 'https://api.quran.com/api/v4/chapters?language=en'
+        response = requests.get(url)
+
+        if response.status_code == 200:
+
+            data = response.json()
+            dumped_data = json.dumps(data)
+
+            parsed_data = json.loads(dumped_data)
+
+            for chapter in parsed_data["chapters"]:
+                if chapter["name_simple"] or chapter["name_complex"] == name:
+                    return self.revelation_place + chapter["revelation_place"]
 
         else:
             print(f"The API is currently down. Response Code: {response.status_code}")
