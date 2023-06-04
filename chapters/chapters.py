@@ -18,6 +18,7 @@ class Chapters(QurAn):
         self.name_in_arabic = ""
         self.revelation_place = ""
         self.revelation_order = 0
+        self.verse_count = 0
 
 
     def all_simple(self) -> list:
@@ -363,6 +364,29 @@ class Chapters(QurAn):
             for chapter in parsed_data["chapters"]:
                 if chapter["name_simple"] or chapter["name_complex"] == name:
                     return self.revelation_order + chapter["revelation_order"]
+
+        else:
+            print(f"The API is currently down. Response Code: {response.status_code}")
+
+    def get_verse_count(self, name: str) -> int:
+        """Returns the number of verses in a given chapter from a simple or complex name as an integer"""
+
+        if type(name) is not str:
+            raise TypeError("Name must be a string")
+
+        url = 'https://api.quran.com/api/v4/chapters?language=en'
+        response = requests.get(url)
+
+        if response.status_code == 200:
+
+            data = response.json()
+            dumped_data = json.dumps(data)
+
+            parsed_data = json.loads(dumped_data)
+
+            for chapter in parsed_data["chapters"]:
+                if chapter["name_simple"] or chapter["name_complex"] == name:
+                    return self.verse_count + chapter["verses_count"]
 
         else:
             print(f"The API is currently down. Response Code: {response.status_code}")
