@@ -22,6 +22,7 @@ class Chapters(QurAn):
         self.chapter_from_id = ""
         self.rev_ord_from_id = 0
         self.name_from_trans_name = ""
+        self.chapter_from_rev_ord = ""
 
 
     def all_simple(self) -> list:
@@ -456,5 +457,38 @@ class Chapters(QurAn):
                     return self.name_from_trans_name + chapter["name_simple"], chapter["name_complex"]
                 else:
                     pass
+        else:
+            print(f"The API is currently down. Response Code: {response.status_code}")
+
+    def get_chapter_from_rev_ord(self, order: int) -> str:
+        """Returns the chapter name (name simple & complex) that belongs to the given revelation order, as a string"""
+
+        if type(order) is not int:
+            raise TypeError("Order must be an integer")
+
+        url = 'https://api.quran.com/api/v4/chapters?language=en'
+        response = requests.get(url)
+
+        if response.status_code == 200:
+
+            data = response.json()
+            dumped_data = json.dumps(data)
+            parsed_data = json.loads(dumped_data)
+
+            for chapter in parsed_data["chapters"]:
+                if chapter["revelation_order"] == order:
+                    return self.chapter_from_rev_ord + chapter["name_simple"], chapter["name_complex"]
+                else:
+                    if order > 114:
+                        print("Out of Scope Error: The Qur'An has 114 chapters, you provided an integer greater than "
+                              "that")
+                        break
+                    elif 0 > order:
+                        print("Invalid Integer: A book cannot have negative chapters, check your integer input")
+                        break
+                    elif order == 0:
+                        print("Invalid Integer: A book cannot have zero chapters, provide an integer between 1 and "
+                              "114 (Chapters in the QurAn)")
+                        break
         else:
             print(f"The API is currently down. Response Code: {response.status_code}")
