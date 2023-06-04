@@ -395,8 +395,8 @@ class Chapters(QurAn):
         else:
             print(f"The API is currently down. Response Code: {response.status_code}")
 
-    def get_chapter_from_id(self, id: int) -> str:
-        """Returns the simple and complex name of a chapter from an ID as a string"""
+    def get_chapter_from_id(self, id: int) -> tuple:
+        """Returns the simple and complex name of a chapter from an ID as a tuple"""
 
         if type(id) is not int:
             raise TypeError("ID must be an integer")
@@ -436,8 +436,8 @@ class Chapters(QurAn):
         else:
             print(f"The API is currently down. Response Code: {response.status_code}")
 
-    def get_name_from_trans_name(self, translated_name: str) -> str:
-        """Returns the original chapter name (simple & complex name) from translated name as a string"""
+    def get_name_from_trans_name(self, translated_name: str) -> tuple:
+        """Returns the original chapter name (simple & complex name) from translated name as a tuple"""
 
         if type(translated_name) is not str:
             raise TypeError("'translated_name' must be a string")
@@ -460,8 +460,8 @@ class Chapters(QurAn):
         else:
             print(f"The API is currently down. Response Code: {response.status_code}")
 
-    def get_chapter_from_rev_ord(self, order: int) -> str:
-        """Returns the chapter name (name simple & complex) that belongs to the given revelation order, as a string"""
+    def get_chapter_from_rev_ord(self, order: int) -> tuple:
+        """Returns the chapter name (name simple & complex) that belongs to the given revelation order, as a tuple"""
 
         if type(order) is not int:
             raise TypeError("Order must be an integer")
