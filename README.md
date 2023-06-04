@@ -20,8 +20,8 @@ It is no surpise that [Qur'An.com](https://quran.com/) is (one of) the most famo
 - Languages
 - [Chapter Info](https://github.com/ibnaleem/quran.py/tree/main/chapters)
 - Juz numbers
-- The verses only revealed in Madīnah
-- The verses only revealed in Mecca
+- [The verses only revealed in Madīnah](https://github.com/ibnaleem/quran.py/blob/main/chapters/chapters.py#L200)
+- [The verses only revealed in Mecca](https://github.com/ibnaleem/quran.py/blob/main/chapters/chapters.py#L152)
 - Indopak, Uthmani, and Imlaei Quranic Script
 - *more*
 
