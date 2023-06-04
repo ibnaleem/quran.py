@@ -4,4 +4,4 @@ class QurAn:
     def __init__(self):
         self.__version__ = 1.0
 
-chaptes = Chapters()
+chapters = Chapters()
