@@ -1,3 +1,4 @@
+import json, requests, html2text
 from quran import QurAn
 
 class Chapters(QurAn):
