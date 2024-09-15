@@ -1,4 +1,5 @@
 <div id="Qur'An" align="center">
+  <img src="https://i.ibb.co/RpzJWdj/toppng-com-hd-outline-quran-islam-koran-book-4500x3500.png", width=30%, height=30%>
   <h1>quran.py</h1>
   <p>A Python package that simplifies access to the content of <a href="https://quran.api-docs.io/v4/getting-started/introduction">QurAn.com's API</a>, providing user-friendly classes and methods for effortless retrieval of Quranic data.</p>
     <a href="https://github.com/ibnaleem/quran.py/blob/main/LICENSE"><img src="https://img.shields.io/github/license/ibnaleem/quran.py?style=for-the-badge"></a>
@@ -12,16 +13,16 @@
 ## Purpose
 In the name of Allah, the Most Merciful, the Most Compassionate, the King of all creation. All praise is due to Allah; we praise Him; seek His help and forgiveness; we seek refuge in Allah from the evils of ourselves and the evils of our actions. For whoever Allah guides none can misguide and whoever He misguides none can guide; I bear witness that there is no true God but Allah alone with no partners and I bear witness that Muhammad ﷺ is His slave and Messenger. May Allah's peace and blessings be upon Muhammad ﷺ, his family, his companions and those who follow them until the Day of Judgement.  
 
-It is no surpise that [Qur'An.com](https://quran.com/) is (one of) the most famous online Qur'An/Islamic resource available for the Ummah, including verse and word specific translations, Tafsirs, audios, juz numbers, and places of revelation for each Surah. After noticing [Qur'An.com's tedious (and well constructed) API](https://quran.api-docs.io/v4/getting-started/introduction), I decided to create a Python package  specifically designed to assist developers in creating Islamic apps. This package will provide a comprehensive set of classes and methods, aiming to optimize their coding process and save valuable time. Quran.py offers the following:
+It is no surpise that [Qur'An.com](https://quran.com/) is (one of) the most famous online Qur'An/Islamic resources available for the Ummah, including verse and word specific translations, Tafsirs, audios, juz numbers, and places of revelation for each Surah. After noticing [Qur'An.com's tedious (and well constructed) API](https://quran.api-docs.io/v4/getting-started/introduction), I decided to create a Python package  specifically designed to assist developers in creating Islamic apps. This package will provide a comprehensive set of classes and methods, aiming to optimize their coding process and save valuable time. Quran.py offers the following:
 - Translations
 - Tafsirs & Tafsir Info
 - Audios of Qur'An recitations
 - Recitation Styles
 - Languages
-- [Chapter Info](https://github.com/ibnaleem/quran.py/tree/main/chapters)
+- Chapter Info
 - Juz numbers
-- [The verses only revealed in Madīnah](https://github.com/ibnaleem/quran.py/blob/main/chapters/chapters.py#L200)
-- [The verses only revealed in Mecca](https://github.com/ibnaleem/quran.py/blob/main/chapters/chapters.py#L152)
+- The verses only revealed in Madīnah
+- The verses only revealed in Mecca
 - Indopak, Uthmani, and Imlaei Quranic Script
 - *more*
 
